@@ -1,28 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-
-    var fields = document.querySelectorAll('.board > div');
-    var playerClasses = {
-
+     var playerClasses = {
         'playerA': 'red',
         'playerB': 'blue'
     };
-
+    var fields = document.querySelectorAll('.board > div');
     var currentPlayer;
-
+     var emptyFields;
 
     initGame();
 
+    function displayRoundInformation() {
+        var round = document.getElementById('round-info');
+
+        round.className = playerClasses[currentPlayer];
+        round.innerHTML = `Round for ${currentPlayer}`;
+    }
+
 
     function initGame() {
-        emptyFields = 9;
-        currentPlayer = 'playerA'
-        fields.forEach(field => {
-            field.addEventListener('click', fieldClickHandler)
+        var fields = document.querySelectorAll('.board > div');
 
-        field.className=''
-        });
+        currentPlayer = 'playerA';
+        emptyFields = 9;
+        fields.forEach(field => field.addEventListener('click', fieldClickHandler));
+        fields.forEach(field => field.removeAttribute('class'));
+
+        displayRoundInformation();
     }
+
+
 
     function fieldClickHandler() {
         var playerClass = playerClasses[currentPlayer];
@@ -35,13 +41,18 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             currentPlayer = 'playerA';
         }
+        displayRoundInformation();
         this.removeEventListener('click', fieldClickHandler);
         emptyFields--;
         console.log(emptyFields);
         checkWinner();
         if (emptyFields === 0) {
-            setTimeout(function(){ alert("I am an alert box!"); }, 800);
-            setTimeout(function(){ initGame(); }, 1500);
+            setTimeout(function () {
+                alert("I am an alert box!");
+            }, 800);
+            setTimeout(function () {
+                initGame();
+            }, 1500);
         }
     }
 
@@ -67,8 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
             dia1 === 'redredred' ||
             dia2 === 'redredred'
         ) {
-            setTimeout(function(){ alert("Red win!"); }, 600);
-            setTimeout(function(){ initGame(); }, 1500);
+            setTimeout(function () {
+                alert("Red win!");
+            }, 600);
+            setTimeout(function () {
+                initGame();
+            }, 1500);
         }
         if (row1 === 'blueblueblue' ||
             row2 === 'blueblueblue' ||
@@ -79,8 +94,12 @@ document.addEventListener('DOMContentLoaded', function () {
             dia1 === 'blueblueblue' ||
             dia2 === 'blueblueblue'
         ) {
-            setTimeout(function(){ alert("Blue win!"); }, 800);
-            setTimeout(function(){ initGame(); }, 1500);
+            setTimeout(function () {
+                alert("Blue win!");
+            }, 800);
+            setTimeout(function () {
+                initGame();
+            }, 1500);
         }
     }
 });
