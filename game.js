@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(emptyFields);
         checkWinner();
         if (emptyFields === 0) {
-            alert("I am an alert box!")
-            initGame();
+            setTimeout(function(){ alert("I am an alert box!"); }, 800);
+            setTimeout(function(){ initGame(); }, 1500);
         }
     }
 
@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
             dia1 === 'redredred' ||
             dia2 === 'redredred'
         ) {
-            alert("Red win!")
-            initGame();
+            setTimeout(function(){ alert("Red win!"); }, 800);
+            setTimeout(function(){ initGame(); }, 1500);
         }
         if (row1 === 'blueblueblue' ||
             row2 === 'blueblueblue' ||
@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
             dia1 === 'blueblueblue' ||
             dia2 === 'blueblueblue'
         ) {
-            alert("Blue win!")
-            initGame();
+            setTimeout(function(){ alert("Blue win!"); }, 800);
+            setTimeout(function(){ initGame(); }, 1500);
         }
     }
 });
