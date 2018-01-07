@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dia1 === 'redredred' ||
             dia2 === 'redredred'
         ) {
-            setTimeout(function(){ alert("Red win!"); }, 800);
+            setTimeout(function(){ alert("Red win!"); }, 600);
             setTimeout(function(){ initGame(); }, 1500);
         }
         if (row1 === 'blueblueblue' ||
