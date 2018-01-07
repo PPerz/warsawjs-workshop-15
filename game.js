@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 
-
+    var fields = document.querySelectorAll('.board > div');
     var playerClasses = {
 
         'playerA': 'red',
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function initGame() {
 
-        var fields = document.querySelectorAll('.board > div');
+
 
         currentPlayer = 'playerA'
         fields.forEach(field => {
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log('clicked', this);
 
+
         if (currentPlayer === 'playerA') {
             currentPlayer = 'playerB';
         } else {
@@ -39,12 +40,48 @@ document.addEventListener('DOMContentLoaded', function () {
         this.removeEventListener('click', fieldClickHandler);
         emptyFields--;
         console.log(emptyFields);
+        checkWinner();
         if (emptyFields === 0) {
             alert("I am an alert box!");
         }
     }
 
     function checkWinner() {
+        var row1 = fields[0].className + fields[1].className + fields[2].className;
+        var row2 = fields[3].className + fields[4].className + fields[5].className;
+        var row3 = fields[6].className + fields[7].className + fields[8].className;
+
+        var col1 = fields[0].className + fields[3].className + fields[6].className;
+        var col2 = fields[1].className + fields[4].className + fields[7].className;
+        var col3 = fields[2].className + fields[5].className + fields[8].className;
+
+        var dia1 = fields[0].className + fields[4].className + fields[8].className;
+        var dia2 = fields[2].className + fields[4].className + fields[6].className;
+
+
+
+        if (row1 === 'redredred' ||
+            row2 === 'redredred' ||
+            row3 === 'redredred' ||
+            col1 === 'redredred' ||
+            col2 === 'redredred' ||
+            col3 === 'redredred' ||
+            dia1 === 'redredred' ||
+            dia2 === 'redredred'
+            ) {
+            alert("Red win!");
+        }
+        if (row1 === 'blueblueblue' ||
+            row2 === 'blueblueblue' ||
+            row3 === 'blueblueblue' ||
+            col1 === 'blueblueblue' ||
+            col2 === 'blueblueblue' ||
+            col3 === 'blueblueblue' ||
+            dia1 === 'blueblueblue' ||
+            dia2 === 'blueblueblue'
+            ) {
+            alert("Blue win!");
+        }
 
 
     }
