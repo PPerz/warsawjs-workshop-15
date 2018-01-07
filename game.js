@@ -12,13 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     initGame();
+    var emptyFields = 9;
 
     function initGame() {
+
         var fields = document.querySelectorAll('.board > div');
 
         currentPlayer = 'playerA'
         fields.forEach(field => {
             field.addEventListener('click', fieldClickHandler)
+
         });
     }
 
@@ -33,7 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             currentPlayer = 'playerA';
         }
-        this.removeEventListener('click',fieldClickHandler);
+        this.removeEventListener('click', fieldClickHandler);
+        emptyFields--;
+        console.log(emptyFields);
+        if (emptyFields === 0) {
+            alert("I am an alert box!");
+        }
     }
+
+    function checkWinner() {
+
+
+    }
+
+
 
 });
