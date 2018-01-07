@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function fieldClickHandler() {
         var playerClass = playerClasses[currentPlayer];
         this.classList.add(playerClass);
+
         console.log('clicked', this);
 
         if (currentPlayer === 'playerA') {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             currentPlayer = 'playerA';
         }
+        this.removeEventListener('click',fieldClickHandler);
     }
 
 });
