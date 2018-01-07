@@ -12,16 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     initGame();
-    var emptyFields = 9;
+
 
     function initGame() {
-
-
-
+        emptyFields = 9;
         currentPlayer = 'playerA'
         fields.forEach(field => {
             field.addEventListener('click', fieldClickHandler)
 
+        field.className=''
         });
     }
 
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         this.classList.add(playerClass);
 
         console.log('clicked', this);
-
 
         if (currentPlayer === 'playerA') {
             currentPlayer = 'playerB';
@@ -42,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(emptyFields);
         checkWinner();
         if (emptyFields === 0) {
-            alert("I am an alert box!");
+            alert("I am an alert box!")
+            initGame();
         }
     }
 
@@ -59,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var dia2 = fields[2].className + fields[4].className + fields[6].className;
 
 
-
         if (row1 === 'redredred' ||
             row2 === 'redredred' ||
             row3 === 'redredred' ||
@@ -68,8 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
             col3 === 'redredred' ||
             dia1 === 'redredred' ||
             dia2 === 'redredred'
-            ) {
-            alert("Red win!");
+        ) {
+            alert("Red win!")
+            initGame();
         }
         if (row1 === 'blueblueblue' ||
             row2 === 'blueblueblue' ||
@@ -79,13 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
             col3 === 'blueblueblue' ||
             dia1 === 'blueblueblue' ||
             dia2 === 'blueblueblue'
-            ) {
-            alert("Blue win!");
+        ) {
+            alert("Blue win!")
+            initGame();
         }
-
-
     }
-
-
-
 });
