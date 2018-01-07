@@ -1,13 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
-     var playerClasses = {
+    var resetButton = document.getElementById('reset-score');
+    var playerClasses = {
         'playerA': 'red',
         'playerB': 'blue'
     };
     var fields = document.querySelectorAll('.board > div');
+    var scores = {
+        'playerA': 0,
+        'playerB': 0
+    }
     var currentPlayer;
-     var emptyFields;
+    var emptyFields;
 
     initGame();
+
+    resetButton.addEventListener('click', function () {
+        scores['playerA'] = 0;
+        scores['playerB'] = 0;
+
+        displayPlayerScore('playerA');
+        displayPlayerScore('playerB');
+    });
+
+    function displayPlayerScore(player) {
+        var score = document.getElementById(`${player}-score`);
+
+        score.innerHTML = `${player} score: ${scores[player]}`;
+    }
+
+    function updatePlayerScore(player) {
+        scores[player]++;
+    }
 
     function displayRoundInformation() {
         var round = document.getElementById('round-info');
@@ -26,6 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
         fields.forEach(field => field.removeAttribute('class'));
 
         displayRoundInformation();
+        displayPlayerScore('playerA');
+        displayPlayerScore('playerB');
     }
 
 
@@ -82,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert("Red win!");
             }, 600);
             setTimeout(function () {
+                updatePlayerScore('playerA');
                 initGame();
             }, 1500);
         }
@@ -98,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert("Blue win!");
             }, 800);
             setTimeout(function () {
+                updatePlayerScore('playerB');
                 initGame();
             }, 1500);
         }
