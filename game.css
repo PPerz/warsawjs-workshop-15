@@ -1,25 +1,30 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .board {
-	height: 300px;
-	width: 300px;
-	margin: 0 auto;
-	font-size: 0;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    font-size: 0;
+}
+body {
+   background-image: url("https://previews.123rf.com/images/loskutnikov/loskutnikov1109/loskutnikov110900015/10474605-old-wooden-board-background-Stock-Photo.jpg");
+
 }
 
+
 .board div {
-	height: 100px;
-	width: 100px;
-	display: inline-block;
-	border: 1px solid grey;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: 3px solid rgb(0, 0, 0);
 }
 
 .red {
-	background-color: crimson;
+    background-color: grey;
 }
 
 .blue {
-	background-color: cornflowerblue;
+    background-color: rgb(228, 244, 42);
 }

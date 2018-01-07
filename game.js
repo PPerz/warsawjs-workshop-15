@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         checkWinner();
         if (emptyFields === 0) {
             setTimeout(function () {
-                alert("I am an alert box!");
+                alert("Pola się skończyły!");
             }, 800);
             setTimeout(function () {
                 initGame();
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dia2 === 'redredred'
         ) {
             setTimeout(function () {
-                alert("Red win!");
+                alert("Grey win!");
             }, 600);
             setTimeout(function () {
                 updatePlayerScore('playerA');
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dia2 === 'blueblueblue'
         ) {
             setTimeout(function () {
-                alert("Blue win!");
+                alert("Yellow win!");
             }, 800);
             setTimeout(function () {
                 updatePlayerScore('playerB');
