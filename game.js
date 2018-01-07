@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function fieldClickHandler() {
+        this.classList.add("red");
         console.log('clicked', this);
     }
 
