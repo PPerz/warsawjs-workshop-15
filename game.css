@@ -7,17 +7,22 @@
     width: 300px;
     margin: 0 auto;
     font-size: 0;
+    display: inline-block;
 }
 body {
    background-image: url("https://previews.123rf.com/images/loskutnikov/loskutnikov1109/loskutnikov110900015/10474605-old-wooden-board-background-Stock-Photo.jpg");
 
 }
 
+.board2{
+    display: inline-block;
+}
 
 .board div {
     height: 100px;
     width: 100px;
     display: inline-block;
+    float: left;
     border: 3px solid rgb(0, 0, 0);
 }
 
